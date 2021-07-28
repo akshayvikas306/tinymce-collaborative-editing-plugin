@@ -6,11 +6,10 @@ const port = process.env.PORT || 3000;
 app.set("port", port);
 
 let http = require("http").Server(app);
-let io = require("socket.io")(httpServer, {
-  cors: {
-    origin: "http://localhost:8080",
-    methods: ["GET", "POST"]
-  }
+let io = require("socket.io")(server, {
+    cors: {
+      origin: '*',
+    }
 });
 const users: Map<string, User> = new Map();
 
